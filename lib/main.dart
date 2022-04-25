@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:flutter/material.dart';
+import 'package:smart_home/Pages/signUp_Page.dart';
+import 'package:smart_home/Pages/signin_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,30 +33,30 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("data"),
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
         ),
-        body: Center(
-          child: ElevatedButton(
-            child: const Text('Button'),
-            onPressed: () {
-              signup();
-            },
-            style: ElevatedButton.styleFrom(
-                primary: const Color.fromARGB(255, 93, 162, 231),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                textStyle:
-                    const TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-          ),
-        ),
-      ),
-    );
+        home: const SignInPage());
   }
 }
 
+// Scaffold(
+//         appBar: AppBar(
+//           title: const Text("data"),
+//         ),
+//         body: Center(
+//           child: ElevatedButton(
+//             child: const Text('Button'),
+//             onPressed: () {
+//               signup();
+//             },
+//             style: ElevatedButton.styleFrom(
+//                 primary: const Color.fromARGB(255, 93, 162, 231),
+//                 padding:
+//                     const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+//                 textStyle:
+//                     const TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+//           ),
+//         ),
+//       ),
