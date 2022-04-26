@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:flutter/material.dart';
-import 'package:smart_home/Pages/signUp_Page.dart';
 import 'package:smart_home/Pages/signin_page.dart';
 
 void main() async {

@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:smart_home/Pages/home_page.dart';
 import 'package:smart_home/Pages/signin_page.dart';
+import 'package:smart_home/services/auth_servce.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -16,6 +17,7 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool circular = false;
+  AuthClass authClass = AuthClass();
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +39,15 @@ class _SignUpPageState extends State<SignUpPage> {
               const SizedBox(
                 height: 20,
               ),
-              buttonItem(
-                  "assets/images/google.svg", "Continue with Google", 25),
+              buttonItem("assets/images/google.svg", "Continue with Google", 25,
+                  () async {
+                await authClass.googleSignIn(context);
+              }),
               const SizedBox(
                 height: 15,
               ),
-              buttonItem("assets/images/phone.svg", "Continue with Phone", 30),
+              buttonItem(
+                  "assets/images/phone.svg", "Continue with Phone", 30, () {}),
               const SizedBox(
                 height: 15,
               ),
@@ -148,36 +153,40 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
-  Widget buttonItem(String imagepath, String bottemName, double size) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width - 60,
-      height: 60,
-      child: Card(
-        color: Colors.black,
-        elevation: 8,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
-          side: const BorderSide(
-            width: 1,
-            color: Colors.red,
+  Widget buttonItem(
+      String imagepath, String bottemName, double size, Function() ontap) {
+    return InkWell(
+      onTap: ontap,
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width - 60,
+        height: 60,
+        child: Card(
+          color: Colors.black,
+          elevation: 8,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+            side: const BorderSide(
+              width: 1,
+              color: Colors.red,
+            ),
           ),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SvgPicture.asset(
-              imagepath,
-              height: size,
-              width: size,
-            ),
-            const SizedBox(
-              width: 15,
-            ),
-            Text(
-              bottemName,
-              style: const TextStyle(color: Colors.white, fontSize: 17),
-            ),
-          ],
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                imagepath,
+                height: size,
+                width: size,
+              ),
+              const SizedBox(
+                width: 15,
+              ),
+              Text(
+                bottemName,
+                style: const TextStyle(color: Colors.white, fontSize: 17),
+              ),
+            ],
+          ),
         ),
       ),
     );
