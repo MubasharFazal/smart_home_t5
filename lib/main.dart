@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:flutter/material.dart';
+import 'package:smart_home/Pages/home_page.dart';
 import 'package:smart_home/Pages/signin_page.dart';
 
 void main() async {
@@ -17,28 +18,30 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  firebase_auth.FirebaseAuth firebaseAuth = firebase_auth.FirebaseAuth.instance;
-  void signup() async {
-    try {
-      await firebaseAuth.createUserWithEmailAndPassword(
-          email: "web11@gmail.com", password: "123456");
-    } catch (e) {
-      // print(e);
-      debugPrint('debug: $e');
-    }
-  }
+  // firebase_auth.FirebaseAuth firebaseAuth = firebase_auth.FirebaseAuth.instance;
+  // void signup() async {
+  //   try {
+  //     await firebaseAuth.createUserWithEmailAndPassword(
+  //         email: "web11@gmail.com", password: "123456");
+  //   } catch (e) {
+  //     // print(e);
+  //     debugPrint('debug: $e');
+  //   }
+  // }
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        title: 'smart home',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.deepPurple,
         ),
-        home: const SignInPage());
+        home: const HomePage());
   }
 }
+
 
 // Scaffold(
 //         appBar: AppBar(
