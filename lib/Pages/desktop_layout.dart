@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_home/widgets/drawer_dashboard.dart';
 
 class MyDesktopBody extends StatelessWidget {
   const MyDesktopBody({Key? key}) : super(key: key);
@@ -6,6 +7,7 @@ class MyDesktopBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const MenuDashboardPage(),
       backgroundColor: Colors.deepPurple[200],
       appBar: AppBar(
         title: const Text('D E S K T O P'),
