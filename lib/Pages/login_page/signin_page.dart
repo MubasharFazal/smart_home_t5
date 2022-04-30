@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 
-import 'home_page.dart';
+import '../home_page/home_page.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);

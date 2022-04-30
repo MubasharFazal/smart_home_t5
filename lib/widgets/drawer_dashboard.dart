@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home/Pages/profile_page.dart';
-import 'package:smart_home/Pages/setting_page.dart';
+import 'package:smart_home/Pages/profile_page/profile_page.dart';
+import 'package:smart_home/Pages/setting_page/setting_page.dart';
 
 class MenuDashboardPage extends StatefulWidget {
   const MenuDashboardPage({Key? key}) : super(key: key);

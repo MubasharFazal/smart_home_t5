@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
-import 'package:smart_home/Pages/home_page.dart';
-import 'package:smart_home/Pages/signin_page.dart';
+import 'package:smart_home/Pages/home_page/home_page.dart';
+import 'package:smart_home/Pages/login_page/signin_page.dart';
 import 'package:smart_home/services/auth_servce.dart';
 
 class SignUpPage extends StatefulWidget {

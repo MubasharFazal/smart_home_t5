@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home/Pages/desktop_layout.dart';
-import 'package:smart_home/Pages/mobile_layout.dart';
+import 'package:smart_home/Pages/home_page/desktop_layout.dart';
+import 'package:smart_home/Pages/home_page/mobile_layout.dart';
 import 'package:smart_home/services/responsive.dart';
 
 class HomePage extends StatelessWidget {
