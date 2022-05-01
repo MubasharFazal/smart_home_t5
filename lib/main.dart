@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:flutter/material.dart';
-import 'package:smart_home/Pages/home_page/home_page.dart';
 import 'package:smart_home/Pages/room_page/room_page.dart';
 
 void main() async {
@@ -38,7 +37,7 @@ class _MyAppState extends State<MyApp> {
         theme: ThemeData(
           primarySwatch: Colors.deepPurple,
         ),
-        home: const HomePage());
+        home: const RoomPage());
   }
 }
 
