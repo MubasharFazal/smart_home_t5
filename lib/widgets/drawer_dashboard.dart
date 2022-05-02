@@ -1,6 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_home/Pages/login_page/login_page.dart';
 import 'package:smart_home/Pages/profile_page/profile_page.dart';
-import 'package:smart_home/Pages/setting_page/setting_page.dart';
 
 class MenuDashboardPage extends StatefulWidget {
   const MenuDashboardPage({Key? key}) : super(key: key);
@@ -62,7 +63,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> {
             onTap: () {},
           ),
           ListTile(
-            leading: const Icon(Icons.logout),
+            leading: const Icon(Icons.close),
             title: const Text('closed',
                 style: TextStyle(
                     color: Colors.white,
@@ -70,6 +71,17 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> {
                     fontWeight: FontWeight.bold)),
             onTap: () {
               Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.logout),
+            title: const Text('Logout',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold)),
+            onTap: () {
+              logout(context);
             },
           ),
         ],
@@ -109,4 +121,10 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> {
           ),
         ),
       );
+  // the logout function
+  Future<void> logout(BuildContext context) async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const LoginPage()));
+  }
 }
