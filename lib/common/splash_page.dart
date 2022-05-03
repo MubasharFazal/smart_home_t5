@@ -3,12 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:smart_home/Pages/login_page/login_page.dart';
 
-class MyHomePage extends StatefulWidget {
+class SplahPage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _SplahPageState createState() => _SplahPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _SplahPageState extends State<SplahPage> {
   @override
   void initState() {
     super.initState();
@@ -21,7 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.deepPurple,
+      color: Colors.blue,
       child: Image.asset("assets/images/mainlogo.png"),
       // child: FlutterLogo(size: MediaQuery.of(context).size.height)
     );

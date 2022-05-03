@@ -404,6 +404,7 @@ class _RegistrationMobileState extends State<RegistrationDesktop> {
             errorMessage = "An undefined Error happened.";
         }
         Fluttertoast.showToast(msg: errorMessage!);
+        // ignore: avoid_print
         print(error.code);
       }
     }

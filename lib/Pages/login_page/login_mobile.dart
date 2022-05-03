@@ -1,8 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:smart_home/Pages/home_page/home_page.dart';
 import 'package:smart_home/Pages/registration_page/registration_page.dart';
+import 'package:smart_home/widgets/text_widget.dart';
 
 class LoginPageMobile extends StatefulWidget {
   // static const String id = "LoginPageMobile";
@@ -28,9 +30,19 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
 
   @override
   Widget build(BuildContext context) {
+    void fireToast2(String message) {
+      Fluttertoast.showToast(
+          msg: message,
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.blue.shade900,
+          textColor: Colors.white,
+          fontSize: 16.0);
+    }
+
     //email field
     final emailField = TextFormField(
-        autofocus: false,
         controller: emailController,
         keyboardType: TextInputType.emailAddress,
         validator: (value) {
@@ -48,13 +60,14 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
           emailController.text = value!;
         },
         textInputAction: TextInputAction.next,
-        decoration: InputDecoration(
-          prefixIcon: const Icon(Icons.mail),
-          contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        decoration: const InputDecoration(
+          prefixIcon: Icon(Icons.mail),
           hintText: "Email",
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
+          border: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          errorBorder: InputBorder.none,
+          disabledBorder: InputBorder.none,
         ));
 
     //password field
@@ -76,86 +89,152 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
           passwordController.text = value!;
         },
         textInputAction: TextInputAction.done,
-        decoration: InputDecoration(
-          prefixIcon: const Icon(Icons.vpn_key),
-          contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        decoration: const InputDecoration(
+          prefixIcon: Icon(Icons.vpn_key),
           hintText: "Password",
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
+          border: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          errorBorder: InputBorder.none,
+          disabledBorder: InputBorder.none,
         ));
 
-    final loginButton = Material(
+    final loginButton = MaterialButton(
       elevation: 5,
-      borderRadius: BorderRadius.circular(30),
-      color: Colors.deepPurple,
-      child: MaterialButton(
-          padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-          minWidth: MediaQuery.of(context).size.width,
-          onPressed: () {
-            signIn(emailController.text, passwordController.text);
-          },
-          child: const Text(
-            "Login",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
-          )),
+      onPressed: () {
+        signIn(emailController.text, passwordController.text);
+      },
+      height: 45,
+      minWidth: 240,
+      child: const Text(
+        'Login',
+        style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+      ),
+      textColor: Colors.white,
+      color: Colors.blue.shade700,
+      shape: const StadiumBorder(),
     );
 
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: SingleChildScrollView(
-          child: Container(
-            color: Colors.white,
-            child: Padding(
-              padding: const EdgeInsets.all(36.0),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    SizedBox(
-                        height: 200,
-                        child: Image.asset(
-                          "assets/images/logo.png",
-                          fit: BoxFit.contain,
-                        )),
-                    const SizedBox(height: 45),
-                    emailField,
-                    const SizedBox(height: 25),
-                    passwordField,
-                    const SizedBox(height: 35),
-                    loginButton,
-                    const SizedBox(height: 15),
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          const Text("Don't have an account? "),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const RegistrationPage()));
-                            },
-                            child: const Text(
-                              "SignUp",
-                              style: TextStyle(
-                                  color: Colors.deepPurple,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15),
-                            ),
-                          )
-                        ])
-                  ],
-                ),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Colors.blue.shade900,
+              Colors.blue,
+              Colors.blue.shade400,
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.centerRight,
+          ),
+        ),
+        child: Column(
+          children: [
+            /// Login & Welcome back
+            Container(
+              height: 210,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 35),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: const [
+                  /// LOGIN TEXT
+                  Text('Login',
+                      style: TextStyle(color: Colors.white, fontSize: 32.5)),
+                  SizedBox(height: 7.5),
+
+                  /// WELCOME
+                  Text('Welcome Back',
+                      style: TextStyle(color: Colors.white, fontSize: 18)),
+                ],
               ),
             ),
-          ),
+            Expanded(
+              flex: 3,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(50),
+                    topRight: Radius.circular(50),
+                  ),
+                ),
+                child: SingleChildScrollView(
+                    child: Column(
+                  children: [
+                    const SizedBox(height: 60),
+
+                    /// Text Fields
+                    Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 25),
+                      height: 145,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey.withOpacity(0.4),
+                                blurRadius: 20,
+                                spreadRadius: 10,
+                                offset: const Offset(0, 10)),
+                          ]),
+                      child: Form(
+                        key: _formKey,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            /// EMAIL
+                            emailField,
+                            const Divider(color: Colors.black54, height: 1),
+
+                            /// PASSWORD
+                            passwordField,
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 35),
+
+                    /// LOGIN BUTTON
+                    loginButton,
+                    const SizedBox(height: 25),
+
+                    /// Rich Text & Toast
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextWidget(
+                          text: ' Not A member ?',
+                          textcolor: Colors.grey,
+                          textsize: 18,
+                          fontWeight: FontWeight.normal,
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const RegistrationPage()));
+                          },
+                          child: TextWidget(
+                            text: ' Sign up',
+                            textcolor: Colors.blue,
+                            textsize: 18,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                )),
+              ),
+            ),
+          ],
         ),
       ),
     );

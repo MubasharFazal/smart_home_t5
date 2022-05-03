@@ -47,13 +47,14 @@ class _RegistrationMobileState extends State<RegistrationMobile> {
           firstNameEditingController.text = value!;
         },
         textInputAction: TextInputAction.next,
-        decoration: InputDecoration(
-          prefixIcon: const Icon(Icons.account_circle),
-          contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        decoration: const InputDecoration(
+          prefixIcon: Icon(Icons.account_circle),
           hintText: "First Name",
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
+          border: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          errorBorder: InputBorder.none,
+          disabledBorder: InputBorder.none,
         ));
 
     //second name field
@@ -71,13 +72,14 @@ class _RegistrationMobileState extends State<RegistrationMobile> {
           secondNameEditingController.text = value!;
         },
         textInputAction: TextInputAction.next,
-        decoration: InputDecoration(
-          prefixIcon: const Icon(Icons.account_circle),
-          contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        decoration: const InputDecoration(
+          prefixIcon: Icon(Icons.account_circle),
           hintText: "Second Name",
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
+          border: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          errorBorder: InputBorder.none,
+          disabledBorder: InputBorder.none,
         ));
 
     //email field
@@ -100,13 +102,14 @@ class _RegistrationMobileState extends State<RegistrationMobile> {
           firstNameEditingController.text = value!;
         },
         textInputAction: TextInputAction.next,
-        decoration: InputDecoration(
-          prefixIcon: const Icon(Icons.mail),
-          contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        decoration: const InputDecoration(
+          prefixIcon: Icon(Icons.mail),
           hintText: "Email",
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
+          border: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          errorBorder: InputBorder.none,
+          disabledBorder: InputBorder.none,
         ));
 
     //password field
@@ -128,13 +131,14 @@ class _RegistrationMobileState extends State<RegistrationMobile> {
           firstNameEditingController.text = value!;
         },
         textInputAction: TextInputAction.next,
-        decoration: InputDecoration(
-          prefixIcon: const Icon(Icons.vpn_key),
-          contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        decoration: const InputDecoration(
+          prefixIcon: Icon(Icons.vpn_key),
           hintText: "Password",
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
+          border: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          errorBorder: InputBorder.none,
+          disabledBorder: InputBorder.none,
         ));
 
     //confirm password field
@@ -153,82 +157,133 @@ class _RegistrationMobileState extends State<RegistrationMobile> {
           confirmPasswordEditingController.text = value!;
         },
         textInputAction: TextInputAction.done,
-        decoration: InputDecoration(
-          prefixIcon: const Icon(Icons.vpn_key),
-          contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        decoration: const InputDecoration(
+          prefixIcon: Icon(Icons.vpn_key),
           hintText: "Confirm Password",
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
+          border: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          errorBorder: InputBorder.none,
+          disabledBorder: InputBorder.none,
         ));
 
     //signup button
-    final signUpButton = Material(
-      elevation: 5,
-      borderRadius: BorderRadius.circular(30),
-      color: Colors.deepPurple,
-      child: MaterialButton(
-          padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-          minWidth: MediaQuery.of(context).size.width,
-          onPressed: () {
-            signUp(emailEditingController.text, passwordEditingController.text);
-          },
-          child: const Text(
-            "SignUp",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
-          )),
+    final signUpButton = MaterialButton(
+      shape: const StadiumBorder(),
+      minWidth: 230,
+      height: 45,
+      color: const Color(0xff616161),
+      child: const Text(
+        'SignUp',
+        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+        textAlign: TextAlign.center,
+      ),
+      onPressed: () {
+        signUp(emailEditingController.text, passwordEditingController.text);
+      },
     );
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.lightBlue),
-          onPressed: () {
-            // passing this to our root
-            Navigator.of(context).pop();
-          },
-        ),
-      ),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Container(
-            color: Colors.white,
-            child: Padding(
-              padding: const EdgeInsets.all(36.0),
-              child: Form(
-                key: _formKey,
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.centerRight,
+                colors: [
+              Color(0xff424242),
+              Color(0xff5c5c5c),
+              Color(0xff7d7d7d),
+            ])),
+        child: Column(
+          children: [
+            /// Sign up & Welcome
+            Container(
+                padding: const EdgeInsets.only(top: 80, bottom: 30, right: 20),
+                width: MediaQuery.of(context).size.width,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    SizedBox(
-                        height: 100,
-                        child: Image.asset(
-                          "assets/images/logo.png",
-                          fit: BoxFit.contain,
-                        )),
-                    const SizedBox(height: 45),
-                    firstNameField,
-                    const SizedBox(height: 20),
-                    secondNameField,
-                    const SizedBox(height: 20),
-                    emailField,
-                    const SizedBox(height: 20),
-                    passwordField,
-                    const SizedBox(height: 20),
-                    confirmPasswordField,
-                    const SizedBox(height: 20),
-                    signUpButton,
-                    const SizedBox(height: 15),
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: const [
+                    Text(
+                      'Sign Up',
+                      style: TextStyle(color: Colors.white, fontSize: 40),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      'Welcome',
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                    ),
                   ],
+                )),
+
+            /// The rest
+            Expanded(
+              child: Container(
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(40),
+                    topLeft: Radius.circular(40),
+                  ),
+                  color: Colors.white,
+                ),
+                padding: const EdgeInsets.only(top: 50, right: 15, left: 15),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      /// Text Fields
+                      Container(
+                        height: 330,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.black.withOpacity(0.4),
+                                  blurRadius: 20,
+                                  spreadRadius: 5,
+                                  offset: const Offset(0, 10))
+                            ]),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            firstNameField,
+                            const Divider(
+                              height: 5,
+                            ),
+                            secondNameField,
+                            const Divider(
+                              height: 5,
+                            ),
+                            emailField,
+                            const Divider(
+                              height: 5,
+                            ),
+                            passwordField,
+                            const Divider(
+                              height: 5,
+                            ),
+                            confirmPasswordField,
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+
+                      /// Sign Up
+                      signUpButton,
+
+                      /// Facebook/Google/Apple
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      //   children: [],
+                      // )
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
+          ],
         ),
       ),
     );
@@ -267,6 +322,7 @@ class _RegistrationMobileState extends State<RegistrationMobile> {
             errorMessage = "An undefined Error happened.";
         }
         Fluttertoast.showToast(msg: errorMessage!);
+        // ignore: avoid_print
         print(error.code);
       }
     }
