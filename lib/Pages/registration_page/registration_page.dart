@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home/Pages/signup_page/registration.desktop.dart';
-import 'package:smart_home/Pages/signup_page/registration_mobile.dart';
+import 'package:smart_home/Pages/registration_page/registration.desktop.dart';
+import 'package:smart_home/Pages/registration_page/registration_mobile.dart';
 import 'package:smart_home/services/responsive.dart';
 
 class RegistrationPage extends StatelessWidget {

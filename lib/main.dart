@@ -1,8 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:flutter/material.dart';
-import 'package:smart_home/Pages/signup_page/registration_page.dart';
-import 'package:smart_home/common/splash_page.dart';
+import 'package:smart_home/Pages/login_page/login_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,9 +36,10 @@ class _MyAppState extends State<MyApp> {
         title: 'smart home',
         theme: ThemeData(
           primarySwatch: Colors.blue,
-          
+          // hintColor: Colors.grey,
+          // focusColor: Colors.red
         ),
-        home: const RegistrationPage());
+        home: const LoginPage());
   }
 }
 
