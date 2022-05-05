@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_home/Pages/home_page/home_page.dart';
 import 'package:smart_home/Pages/login_page/login_page.dart';
 import 'package:smart_home/Pages/profile_page/profile_page.dart';
+import 'package:smart_home/Pages/room_page/room_page.dart';
 
 class MenuDashboardPage extends StatefulWidget {
   const MenuDashboardPage({Key? key}) : super(key: key);
@@ -20,7 +22,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> {
         'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80';
 
     return Drawer(
-      backgroundColor: Colors.deepPurple[400],
+      backgroundColor: Colors.blue[400],
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
@@ -36,7 +38,10 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> {
               ),
             )),
           ),
-
+          const Divider(
+            thickness: 0.5,
+            height: 10,
+          ),
           // const DrawerHeader(
           //   // child: Text(
           //   //   'Side menu',
@@ -55,12 +60,39 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> {
               Icons.input,
               color: Colors.white,
             ),
-            title: const Text('Item 1',
+            title: const Text('Home',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 15,
                     fontWeight: FontWeight.bold)),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const HomePage()));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.meeting_room),
+            title: const Text('Rooms',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold)),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const RoomPage()));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.devices),
+            title: const Text('Devices',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold)),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const RoomPage()));
+            },
           ),
           ListTile(
             leading: const Icon(Icons.close),
