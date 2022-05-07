@@ -29,17 +29,6 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
 
   @override
   Widget build(BuildContext context) {
-    void fireToast2(String message) {
-      Fluttertoast.showToast(
-          msg: message,
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.BOTTOM,
-          timeInSecForIosWeb: 1,
-          backgroundColor: Colors.blue.shade900,
-          textColor: Colors.white,
-          fontSize: 16.0);
-    }
-
     //email field
     final emailField = TextFormField(
         controller: emailController,
