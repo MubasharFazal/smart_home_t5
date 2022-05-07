@@ -6,7 +6,10 @@ class ResponsiveLayout extends StatelessWidget {
   final Widget mobileBody;
   final Widget desktopBody;
 
-  const ResponsiveLayout({required this.mobileBody, required this.desktopBody});
+  // ignore: prefer_const_constructors_in_immutables
+  ResponsiveLayout(
+      {Key? key, required this.mobileBody, required this.desktopBody})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

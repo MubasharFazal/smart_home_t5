@@ -8,9 +8,9 @@ class RegistrationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: ResponsiveLayout(
-          mobileBody: RegistrationMobile(), desktopBody: RegistrationDesktop()),
+          mobileBody: const RegistrationMobile(), desktopBody: const RegistrationDesktop()),
     );
   }
 }

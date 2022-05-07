@@ -9,9 +9,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //final CurrentWidth = MediaQuery.of(context).size.width;
-    return const Scaffold(
+    return Scaffold(
       body: ResponsiveLayout(
-          mobileBody: MyMobileBody(), desktopBody: MyDesktopBody()),
+          mobileBody: const MyMobileBody(), desktopBody: const MyDesktopBody()),
     );
   }
 }
