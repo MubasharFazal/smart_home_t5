@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:smart_home/Pages/home_page/home_page.dart';
 import 'package:smart_home/Pages/registration_page/registration_page.dart';
+import 'package:smart_home/widgets/start_up_page.dart';
 import 'package:smart_home/widgets/text_widget.dart';
 
 class LoginPageMobile extends StatefulWidget {
@@ -237,7 +237,7 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
             .then((uid) => {
                   Fluttertoast.showToast(msg: "Login Successful"),
                   Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => const HomePage())),
+                      builder: (context) => const StartUpPage())),
                 });
       } on FirebaseAuthException catch (error) {
         switch (error.code) {

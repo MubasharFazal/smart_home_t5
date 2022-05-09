@@ -5,21 +5,21 @@ import 'package:smart_home/Pages/login_page/login_page.dart';
 import 'package:smart_home/Pages/profile_page/profile_page.dart';
 import 'package:smart_home/Pages/room_page/room_page.dart';
 
-class MenuDashboardPage extends StatefulWidget {
-  const MenuDashboardPage({Key? key}) : super(key: key);
+class DrawerDashboard extends StatefulWidget {
+  const DrawerDashboard({Key? key}) : super(key: key);
 
   @override
-  State<MenuDashboardPage> createState() => _MenuDashboardPageState();
+  State<DrawerDashboard> createState() => _DrawerDashboardState();
 }
 
-class _MenuDashboardPageState extends State<MenuDashboardPage> {
+class _DrawerDashboardState extends State<DrawerDashboard> {
   final padding = const EdgeInsets.symmetric(horizontal: 20);
   @override
   Widget build(BuildContext context) {
     const name = 'Sarah Abs';
     const email = 'sarah@abs.com';
-    const urlImage =
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80';
+    const urlImage = '';
+    // 'https://images.unsplash.com/-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80';
 
     return Drawer(
       backgroundColor: Colors.blue[400],
@@ -79,7 +79,7 @@ class _MenuDashboardPageState extends State<MenuDashboardPage> {
                     fontWeight: FontWeight.bold)),
             onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const RoomPage()));
+                  MaterialPageRoute(builder: (context) => const HomePage()));
             },
           ),
           ListTile(

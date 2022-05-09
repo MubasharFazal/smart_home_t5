@@ -1,5 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_home/database/gateway.dart';
 import 'package:smart_home/widgets/drawer_dashboard.dart';
 
 class RoomPage extends StatefulWidget {
@@ -10,10 +10,8 @@ class RoomPage extends StatefulWidget {
 }
 
 class _RoomPageState extends State<RoomPage> {
-  final db = FirebaseFirestore.instance;
-  late String title;
-  late String description;
-
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController descriptionController = TextEditingController();
   void showdialog() {
     GlobalKey<FormState> _formkey = GlobalKey<FormState>();
     showDialog(
@@ -28,15 +26,16 @@ class _RoomPageState extends State<RoomPage> {
                 child: Column(
                   children: <Widget>[
                     TextFormField(
-                      autofocus: true,
-                      validator: (_value) {
-                        if (_value == null || _value.isEmpty) {
-                          return 'Where you want to install automation?';
+                      controller: titleController,
+                      keyboardType: TextInputType.emailAddress,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return ("Please Enter Your Email");
                         }
                         return null;
                       },
-                      onChanged: (_value) {
-                        title = _value;
+                      onSaved: (value) {
+                        titleController.text = value!;
                       },
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
@@ -48,14 +47,16 @@ class _RoomPageState extends State<RoomPage> {
                       height: 20,
                     ),
                     TextFormField(
-                      validator: (_value) {
-                        if (_value == null) {
-                          return 'What is room status?';
+                      controller: descriptionController,
+                      keyboardType: TextInputType.emailAddress,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return ("Please Enter Your Email");
                         }
                         return null;
                       },
-                      onChanged: (_value) {
-                        description = _value;
+                      onSaved: (value) {
+                        descriptionController.text = value!;
                       },
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
@@ -70,12 +71,12 @@ class _RoomPageState extends State<RoomPage> {
             actions: <Widget>[
               ElevatedButton(
                   onPressed: () {
-                    if (_formkey.currentState!.validate()) {
-                      db
-                          .collection("rooms")
-                          .add({'title': title, 'description': description});
-                      Navigator.pop(context);
-                    }
+                    dailySpecialref.push().set({
+                      'value': titleController.text,
+                      'des': descriptionController.text
+                    }).then((value) => print("this object is added"));
+                    titleController.clear();
+                    descriptionController.clear();
                   },
                   child: const Text("Add"))
             ],
@@ -86,7 +87,7 @@ class _RoomPageState extends State<RoomPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const MenuDashboardPage(),
+      drawer: const DrawerDashboard(),
       floatingActionButton: FloatingActionButton(
         onPressed: showdialog,
         child: const Icon(Icons.add),
@@ -94,24 +95,25 @@ class _RoomPageState extends State<RoomPage> {
       appBar: AppBar(
         title: const Text("Rooms"),
       ),
-      body: StreamBuilder<QuerySnapshot>(
-        stream: db.collection('rooms').snapshots(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return ListView.builder(
-              itemCount: snapshot.data!.docs.length,
-              itemBuilder: (context, index) {
-                return const ListTile(
-                  title: Text('rooms'),
-                );
-              },
-            );
-          } else if (snapshot.hasError) {
-            return const CircularProgressIndicator();
-          } else {
-            return const CircularProgressIndicator();
-          }
-        },
+      body: Center(
+        child: Column(
+          children: [
+            ElevatedButton(
+                onPressed: () {
+                  lightDatabase.set({
+                    'status': 'true',
+                  });
+                },
+                child: const Text('true')),
+            ElevatedButton(
+                onPressed: () {
+                  lightDatabase.set({
+                    'status': 'false',
+                  });
+                },
+                child: const Text('false')),
+          ],
+        ),
       ),
     );
   }
