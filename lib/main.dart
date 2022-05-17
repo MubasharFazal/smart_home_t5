@@ -1,9 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_home/Pages/home_page/home_page.dart';
 import 'package:smart_home/Pages/splash_page/splash_page.dart';
 import 'package:smart_home/provider/getit.dart';
 import 'package:smart_home/routes/routes.dart';
 import 'package:smart_home/services/navigation_service.dart';
+import 'package:smart_home/widgets/start_up_page.dart';
 
 void main() async {
   setupLocator();
@@ -83,7 +85,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       routes: routes,
-      home: SplahPage(),
+      home: const StartUpPage(),
     );
   }
 }

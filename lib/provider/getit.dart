@@ -14,5 +14,4 @@ void setupLocator() {
   getIt.registerFactory(() => SmartFanViewModel());
   getIt.registerFactory(() => SmartACViewModel());
   getIt.registerFactory(() => SmartSpeakerViewModel());
-  getIt.registerFactory(() => SmartFanViewModel());
 }

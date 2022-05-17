@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:smart_home/Pages/home_page/components/homebody.dart';
+import 'package:smart_home/Pages/home_page/components/body.dart';
 import 'package:smart_home/config/size_config.dart';
 import 'package:smart_home/model_view_controller/home_view_model.dart';
 import 'package:smart_home/provider/base_view.dart';
@@ -23,11 +23,7 @@ class MyMobileBody extends StatelessWidget {
             child: Scaffold(
               drawer: const DrawerDashboard(),
               appBar: AppBar(
-                // automaticallyImplyLeading: false,
-                // toolbarHeight: getProportionateScreenHeight(60),
-                //centerTitle: true,
                 elevation: 0,
-
                 backgroundColor: Colors.white,
                 title: Padding(
                   padding: EdgeInsets.symmetric(
@@ -35,49 +31,35 @@ class MyMobileBody extends StatelessWidget {
                       4,
                     ),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        // InkWell(
-                        //   onTap: () {
-                        //     const DrawerDashboard();
-                        //   },
-                        //   child: const ImageIcon(
-                        //     AssetImage("assets/images/menu_lines.png"),
-                        //     color: Colors.black,
-                        //     size: 30,
-                        //   ),
-                        // ),
-                        Text(
-                          'Home',
-                          style: Theme.of(context).textTheme.headline1,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Home',
+                        style: Theme.of(context).textTheme.headline1,
+                      ),
+                      Container(
+                        width: 40,
+                        height: 40,
+                        decoration: const BoxDecoration(
+                          color: Color(0xffdadada),
+                          borderRadius:
+                              BorderRadius.all(Radius.elliptical(45, 45)),
                         ),
-                        Container(
-                          width: 50,
-                          height: 50,
-                          decoration: const BoxDecoration(
-                            color: Color(0xffdadada),
-                            borderRadius:
-                                BorderRadius.all(Radius.elliptical(45, 45)),
+                        child: IconButton(
+                          splashRadius: 25,
+                          icon: const Icon(
+                            FontAwesomeIcons.solidUser,
+                            color: Colors.blue,
                           ),
-                          child: IconButton(
-                            splashRadius: 25,
-                            icon: const Icon(
-                              FontAwesomeIcons.solidUser,
-                              color: Colors.blue,
-                            ),
-                            onPressed: () {
-                              // Navigator.of(context).pushNamed(EditProfile.routeName);
-                            },
-                          ),
+                          onPressed: () {
+                            // Navigator.of(context).pushNamed(EditProfile.routeName);
+                          },
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
-
                 leadingWidth: getProportionateScreenWidth(170),
                 bottom: PreferredSize(
                   child: TabBar(
@@ -115,7 +97,7 @@ class MyMobileBody extends StatelessWidget {
               ),
               body: TabBarView(
                 children: <Widget>[
-                  HomeBody(
+                  Body(
                     model: model,
                   ),
                   const Center(

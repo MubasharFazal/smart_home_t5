@@ -30,10 +30,15 @@ class _CustomBottomNavBarState extends State<StartUpPage> {
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(
-          Icons.add,
+          Icons.home,
         ),
         backgroundColor: Colors.blue,
-        onPressed: () {},
+        onPressed: () {
+          setState(() {
+            currentScreen = const HomePage();
+            currentTab = 2;
+          });
+        },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(

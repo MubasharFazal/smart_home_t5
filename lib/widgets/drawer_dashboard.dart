@@ -4,6 +4,7 @@ import 'package:smart_home/Pages/home_page/home_page.dart';
 import 'package:smart_home/Pages/login_page/login_page.dart';
 import 'package:smart_home/Pages/profile_page/profile_page.dart';
 import 'package:smart_home/Pages/room_page/room_page.dart';
+import 'package:smart_home/widgets/start_up_page.dart';
 
 class DrawerDashboard extends StatefulWidget {
   const DrawerDashboard({Key? key}) : super(key: key);
@@ -67,7 +68,7 @@ class _DrawerDashboardState extends State<DrawerDashboard> {
                     fontWeight: FontWeight.bold)),
             onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const HomePage()));
+                  MaterialPageRoute(builder: (context) => const StartUpPage()));
             },
           ),
           ListTile(
