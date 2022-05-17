@@ -28,14 +28,48 @@ class Body extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.all(getProportionateScreenHeight(5)),
                     child: DarkContainer(
-                      itsOn: model.isLightOn,
-                      switchButton: model.lightSwitch,
+                      itsOn: model.isLightOn1,
+                      switchButton: model.lightSwitch1,
                       onTap: () {
                         Navigator.of(context).pushNamed(SmartLight.routeName);
                       },
                       iconAsset: 'assets/icons/svg/light.svg',
                       device: 'Lightening',
-                      deviceCount: '4 lamps',
+                      deviceCount: '1 lamps',
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.all(getProportionateScreenHeight(5)),
+                    child: DarkContainer(
+                      itsOn: model.isLightOn2,
+                      switchButton: model.lightSwitch2,
+                      onTap: () {
+                        Navigator.of(context).pushNamed(SmartLight.routeName);
+                      },
+                      iconAsset: 'assets/icons/svg/light.svg',
+                      device: 'Lightening',
+                      deviceCount: '2 lamps',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.all(getProportionateScreenHeight(5)),
+                    child: DarkContainer(
+                      itsOn: model.isLightOn3,
+                      switchButton: model.lightSwitch3,
+                      onTap: () {
+                        Navigator.of(context).pushNamed(SmartLight.routeName);
+                      },
+                      iconAsset: 'assets/icons/svg/light.svg',
+                      device: 'Lightening',
+                      deviceCount: '3 lamps',
                     ),
                   ),
                 ),
@@ -50,7 +84,26 @@ class Body extends StatelessWidget {
                       },
                       iconAsset: 'assets/icons/svg/fan.svg',
                       device: 'Fan',
-                      deviceCount: '2 devices',
+                      deviceCount: '1 devices',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.all(getProportionateScreenHeight(5)),
+                    child: DarkContainer(
+                      itsOn: model.isLightOn4,
+                      switchButton: model.lightSwitch4,
+                      onTap: () {
+                        Navigator.of(context).pushNamed(SmartLight.routeName);
+                      },
+                      iconAsset: 'assets/icons/svg/light.svg',
+                      device: 'Lightening',
+                      deviceCount: '4 lamps',
                     ),
                   ),
                 ),

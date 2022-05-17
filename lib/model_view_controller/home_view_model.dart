@@ -7,7 +7,10 @@ class HomeScreenViewModel extends BaseModel {
   int selectedIndex = 1;
   int randomNumber = 1;
   final PageController pageController = PageController();
-  bool isLightOn = false;
+  bool isLightOn1 = false;
+  bool isLightOn2 = false;
+  bool isLightOn3 = false;
+  bool isLightOn4 = false;
   bool isFanON = false;
 
   void generateRandomNumber() {
@@ -15,10 +18,27 @@ class HomeScreenViewModel extends BaseModel {
     notifyListeners();
   }
 
-  void lightSwitch() {
-    isLightOn = !isLightOn;
+  void lightSwitch1() {
+    isLightOn1 = !isLightOn1;
     notifyListeners();
   }
+
+  void lightSwitch2() {
+    isLightOn2 = !isLightOn2;
+    notifyListeners();
+  }
+
+  void lightSwitch3() {
+    isLightOn3 = !isLightOn3;
+    notifyListeners();
+  }
+
+  void lightSwitch4() {
+    isLightOn4 = !isLightOn4;
+    notifyListeners();
+  }
+
+
 
   void fanSwitch() {
     isFanON = !isFanON;
