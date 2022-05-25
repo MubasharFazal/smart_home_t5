@@ -1,10 +1,11 @@
 import 'package:firebase_database/firebase_database.dart';
+import 'package:smart_home/database/appliencs_address.dart';
 
-final firebasedatabase = FirebaseDatabase.instance.reference();
+final _database = FirebaseDatabase.instance.ref();
 
-//
-final dailySpecialref = firebasedatabase.child('check/');
-
-final lightDatabase = firebasedatabase.child('light1/');
-
-final fanDatabase = firebasedatabase.child('fan1/');
+// lights
+final lightDatabase1 = _database.child(light1);
+final lightDatabase2 = _database.child(light2);
+final lightDatabase3 = _database.child(light3);
+// fan con
+final fanDatabase1 = _database.child(fan1);

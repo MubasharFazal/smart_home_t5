@@ -4,6 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:smart_home/Pages/registration_page/registration_page.dart';
 import 'package:smart_home/widgets/start_up_page.dart';
 import 'package:smart_home/widgets/text_widget.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class LoginPageMobile extends StatefulWidget {
   // static const String id = "LoginPageMobile";
@@ -23,6 +24,7 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
 
   // firebase
   final _auth = FirebaseAuth.instance;
+  final storage = const FlutterSecureStorage();
 
   // string for displaying the error Message
   String? errorMessage;
@@ -232,13 +234,16 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
   void signIn(String email, String password) async {
     if (_formKey.currentState!.validate()) {
       try {
-        await _auth
-            .signInWithEmailAndPassword(email: email, password: password)
-            .then((uid) => {
-                  Fluttertoast.showToast(msg: "Login Successful"),
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => const StartUpPage())),
-                });
+        UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+            email: email, password: password);
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: ((context) => const StartUpPage())));
+        await storage.write(key: "uid", value: userCredential.user?.uid);
+        // .then((uid) => {
+        //       Fluttertoast.showToast(msg: "Login Successful"),
+        //       Navigator.of(context).pushReplacement(MaterialPageRoute(
+        //           builder: (context) => const StartUpPage())),
+        //     });
       } on FirebaseAuthException catch (error) {
         switch (error.code) {
           case "invalid-email":

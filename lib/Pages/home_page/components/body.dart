@@ -90,25 +90,6 @@ class Body extends StatelessWidget {
                 ),
               ],
             ),
-            Row(
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.all(getProportionateScreenHeight(5)),
-                    child: DarkContainer(
-                      itsOn: model.isLightOn4,
-                      switchButton: model.lightSwitch4,
-                      onTap: () {
-                        Navigator.of(context).pushNamed(SmartLight.routeName);
-                      },
-                      iconAsset: 'assets/icons/svg/light.svg',
-                      device: 'Lightening',
-                      deviceCount: '4 lamps',
-                    ),
-                  ),
-                ),
-              ],
-            ),
             Padding(
               padding: EdgeInsets.all(getProportionateScreenHeight(8)),
             ),

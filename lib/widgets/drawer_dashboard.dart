@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:smart_home/Pages/home_page/home_page.dart';
 import 'package:smart_home/Pages/login_page/login_page.dart';
 import 'package:smart_home/Pages/profile_page/profile_page.dart';
@@ -15,6 +16,8 @@ class DrawerDashboard extends StatefulWidget {
 
 class _DrawerDashboardState extends State<DrawerDashboard> {
   final padding = const EdgeInsets.symmetric(horizontal: 20);
+  final storage = const FlutterSecureStorage();
+
   @override
   Widget build(BuildContext context) {
     const name = 'Sarah Abs';
@@ -157,6 +160,7 @@ class _DrawerDashboardState extends State<DrawerDashboard> {
   // the logout function
   Future<void> logout(BuildContext context) async {
     await FirebaseAuth.instance.signOut();
+    await storage.delete(key: "uid");
     Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => const LoginPage()));
   }

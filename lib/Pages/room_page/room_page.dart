@@ -71,10 +71,10 @@ class _RoomPageState extends State<RoomPage> {
             actions: <Widget>[
               ElevatedButton(
                   onPressed: () {
-                    dailySpecialref.push().set({
-                      'value': titleController.text,
-                      'des': descriptionController.text
-                    }).then((value) => print("this object is added"));
+                    // dailySpecialref.push().set({
+                    //   'value': titleController.text,
+                    //   'des': descriptionController.text
+                    // }).then((value) => print("this object is added"));
                     titleController.clear();
                     descriptionController.clear();
                   },
@@ -100,18 +100,18 @@ class _RoomPageState extends State<RoomPage> {
           children: [
             ElevatedButton(
                 onPressed: () {
-                  lightDatabase.set({
-                    'status': 'true',
+                  lightDatabase1.set({
+                    'status': '1',
                   });
                 },
-                child: const Text('true')),
+                child: const Text('1')),
             ElevatedButton(
                 onPressed: () {
-                  lightDatabase.set({
-                    'status': 'false',
+                  lightDatabase1.set({
+                    'status': '0',
                   });
                 },
-                child: const Text('false')),
+                child: const Text('0')),
           ],
         ),
       ),
