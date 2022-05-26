@@ -239,11 +239,6 @@ class _LoginPageMobileState extends State<LoginPageMobile> {
         Navigator.pushReplacement(context,
             MaterialPageRoute(builder: ((context) => const StartUpPage())));
         await storage.write(key: "uid", value: userCredential.user?.uid);
-        // .then((uid) => {
-        //       Fluttertoast.showToast(msg: "Login Successful"),
-        //       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        //           builder: (context) => const StartUpPage())),
-        //     });
       } on FirebaseAuthException catch (error) {
         switch (error.code) {
           case "invalid-email":
