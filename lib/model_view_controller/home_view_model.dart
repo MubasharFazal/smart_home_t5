@@ -4,7 +4,6 @@ import 'package:smart_home/database/gateway.dart';
 import 'package:smart_home/provider/base_model.dart';
 
 class HomeScreenViewModel extends BaseModel {
-
   //-------------VARIABLES-------------//
   int selectedIndex = 1;
   int randomNumber = 1;
