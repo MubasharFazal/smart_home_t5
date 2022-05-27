@@ -12,9 +12,6 @@ class RoomPage extends StatefulWidget {
 
 class _RoomPageState extends State<RoomPage> {
   bool _testdate1 = false;
-  String _testdate2 = "result goes here";
-  String _testdate3 = "result goes here";
-  String _testdate4 = "result goes here";
 
   final _database = FirebaseDatabase.instance.ref();
 
@@ -36,39 +33,6 @@ class _RoomPageState extends State<RoomPage> {
         }
       });
     });
-    _database.child(light1).child('status').onValue.listen((event) {
-      final Object? stateOflight = event.snapshot.value;
-      setState(() {
-        _testdate2 = '$stateOflight';
-        if (_testdate2 == '0') {
-          _testdate2 = 'ture';
-        } else {
-          _testdate2 = 'false';
-        }
-      });
-    });
-    _database.child(light1).child('status').onValue.listen((event) {
-      final Object? stateOflight = event.snapshot.value;
-      setState(() {
-        _testdate3 = '$stateOflight';
-        if (_testdate3 == '0') {
-          _testdate3 = 'ture';
-        } else {
-          _testdate3 = 'false';
-        }
-      });
-    });
-    _database.child(light1).child('status').onValue.listen((event) {
-      final Object? stateOflight = event.snapshot.value;
-      setState(() {
-        _testdate4 = '$stateOflight';
-        if (_testdate4 == '0') {
-          _testdate4 = 'ture';
-        } else {
-          _testdate4 = 'false';
-        }
-      });
-    });
   }
 
   @override
@@ -80,9 +44,6 @@ class _RoomPageState extends State<RoomPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(_testdate1.toString()),
-          Text(_testdate2),
-          Text(_testdate3),
-          Text(_testdate4),
         ],
       ),
     ));

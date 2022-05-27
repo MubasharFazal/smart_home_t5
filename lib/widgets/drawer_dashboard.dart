@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:smart_home/Pages/edit_profile/components/profile_page.dart';
 import 'package:smart_home/Pages/home_page/home_page.dart';
 import 'package:smart_home/Pages/login_page/login_page.dart';
-import 'package:smart_home/Pages/profile_page/profile_page.dart';
 import 'package:smart_home/Pages/room_page/room_page.dart';
 import 'package:smart_home/widgets/start_up_page.dart';
 
