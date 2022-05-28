@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smart_home/Pages/edit_profile/components/profile_page.dart';
+import 'package:smart_home/Pages/edit_profile/edit_profile.dart';
 import 'package:smart_home/Pages/home_page/home_page.dart';
 import 'package:smart_home/Pages/login_page/login_page.dart';
 import 'package:smart_home/Pages/room_page/room_page.dart';
@@ -35,11 +37,7 @@ class _DrawerDashboardState extends State<DrawerDashboard> {
             name: name,
             email: email,
             onClicked: () => Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const ProfilePage(
-                name: 'Sarah Abs',
-                email: 'sarah@abs.com',
-                urlImage: urlImage,
-              ),
+              builder: (context) => const ProfilePage(),
             )),
           ),
           const Divider(
@@ -59,6 +57,21 @@ class _DrawerDashboardState extends State<DrawerDashboard> {
           //       //     image: AssetImage(''))
           //       ),
           // ),
+          ListTile(
+            leading: const Icon(
+              FontAwesomeIcons.solidUser,
+              color: Colors.blue,
+            ),
+            title: const Text('Profile',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold)),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const EditProfile()));
+            },
+          ),
           ListTile(
             leading: const Icon(
               Icons.input,

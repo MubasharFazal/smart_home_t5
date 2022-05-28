@@ -63,14 +63,10 @@ class MyDesktopBody extends StatelessWidget {
                 leadingWidth: getProportionateScreenWidth(170),
               ),
               body: Center(
-                child: SizedBox(
+                child: Container(
                   width: 800,
-                  child: Column(
-                    children: <Widget>[
-                      Body(
-                        model: model,
-                      ),
-                    ],
+                  child: Body(
+                    model: model,
                   ),
                 ),
               ),

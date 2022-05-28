@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:smart_home/Pages/home_page/components/add_device.dart';
 import 'package:smart_home/Pages/home_page/components/dark_container.dart';
+import 'package:smart_home/Pages/home_page/components/music_layout.dart';
+import 'package:smart_home/Pages/home_page/components/savings_container.dart';
+import 'package:smart_home/Pages/home_page/components/weather_container.dart';
 import 'package:smart_home/config/size_config.dart';
 import 'package:smart_home/model_view_controller/home_view_model.dart';
 
@@ -20,6 +24,14 @@ class Body extends StatelessWidget {
         ),
         child: Column(
           children: [
+            Padding(
+              padding: EdgeInsets.all(getProportionateScreenHeight(5)),
+              child: WeatherContainer(model: model),
+            ),
+            Padding(
+              padding: EdgeInsets.all(getProportionateScreenHeight(5)),
+              child: SavingsContainer(model: model),
+            ),
             Row(
               children: [
                 Expanded(
@@ -53,6 +65,10 @@ class Body extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+            Padding(
+              padding: EdgeInsets.all(getProportionateScreenHeight(5)),
+              child: const MusicLayout(),
             ),
             Row(
               children: [
@@ -90,6 +106,10 @@ class Body extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.all(getProportionateScreenHeight(8)),
+            ),
+            Padding(
+              padding: EdgeInsets.all(getProportionateScreenHeight(8)),
+              child: const AddNewDevice(),
             ),
           ],
         ),
