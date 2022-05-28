@@ -6,7 +6,7 @@ import 'package:smart_home/Pages/smart_fan/smart_fan.dart';
 import 'package:smart_home/Pages/smart_light/smart_light.dart';
 import 'package:smart_home/Pages/smart_speaker/smart_speaker.dart';
 import 'package:smart_home/Pages/splash_page/splash_page.dart';
-import 'package:smart_home/widgets/start_up_page.dart';
+import 'package:smart_home/Pages/start/start_up_page.dart';
 
 final Map<String, WidgetBuilder> routes = {
   HomePage.routeName: (context) => const HomePage(),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:smart_home/Pages/registration_page/registration_page.dart';
-import 'package:smart_home/widgets/start_up_page.dart';
+import 'package:smart_home/Pages/start/start_up_page.dart';
 import 'package:smart_home/widgets/text_widget.dart';
 import 'package:smart_home/widgets/wsized.dart';
 

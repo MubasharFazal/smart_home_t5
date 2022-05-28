@@ -5,7 +5,7 @@ import 'package:smart_home/Pages/login_page/login_page.dart';
 import 'package:smart_home/provider/getit.dart';
 import 'package:smart_home/routes/routes.dart';
 import 'package:smart_home/services/navigation_service.dart';
-import 'package:smart_home/widgets/start_up_page.dart';
+import 'package:smart_home/Pages/start/start_up_page.dart';
 
 void main() async {
   setupLocator();

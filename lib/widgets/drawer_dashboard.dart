@@ -5,7 +5,7 @@ import 'package:smart_home/Pages/edit_profile/components/profile_page.dart';
 import 'package:smart_home/Pages/home_page/home_page.dart';
 import 'package:smart_home/Pages/login_page/login_page.dart';
 import 'package:smart_home/Pages/room_page/room_page.dart';
-import 'package:smart_home/widgets/start_up_page.dart';
+import 'package:smart_home/Pages/start/start_up_page.dart';
 
 class DrawerDashboard extends StatefulWidget {
   const DrawerDashboard({Key? key}) : super(key: key);

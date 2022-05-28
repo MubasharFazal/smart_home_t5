@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:smart_home/config/size_config.dart';
 import 'package:smart_home/model_view_controller/home_view_model.dart';
 
-class SavingsContainer extends StatelessWidget {
-  const SavingsContainer({Key? key, required this.model}) : super(key: key);
+class WeatherContainer extends StatelessWidget {
+  const WeatherContainer({Key? key, required this.model}) : super(key: key);
 
   final HomeScreenViewModel model;
 
@@ -12,7 +12,7 @@ class SavingsContainer extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: getProportionateScreenHeight(100),
+          height: getProportionateScreenHeight(110),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: const Color(0xFFFFFFFF),
@@ -26,46 +26,42 @@ class SavingsContainer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
+                SizedBox(
+                  width: getProportionateScreenWidth(90),
+                ),
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      'Energy Saving',
-                      style: Theme.of(context).textTheme.headline2,
-                    ),
-                    const SizedBox(
-                      height: 10,
+                      '28°C',
+                      style: Theme.of(context).textTheme.headline1,
                     ),
                     Text(
-                      '+35%',
-                      style: Theme.of(context).textTheme.headline1!.copyWith(
-                            color: Colors.green,
-                          ),
+                      'Cloudy',
+                      style: Theme.of(context).textTheme.headline1,
                     ),
                     SizedBox(
                       height: getProportionateScreenHeight(5),
                     ),
                     Text(
-                      '23.5 kWh',
+                      '27 Mar 2022',
                       style: Theme.of(context).textTheme.headline5,
                     ),
+                    Text(
+                      'Jagakarsa,Jakarta',
+                      style: Theme.of(context).textTheme.headline5,
+                    )
                   ],
-                ),
-                SizedBox(
-                  width: getProportionateScreenWidth(90),
                 ),
               ],
             ),
           ),
         ),
-        Positioned(
-          right: 0,
-          child: Image.asset(
-            'assets/images/thunder.png',
-            height: getProportionateScreenHeight(100),
-            width: getProportionateScreenWidth(140),
-            fit: BoxFit.contain,
-          ),
+        Image.asset(
+          'assets/images/weather/${model.randomNumber}.png',
+          height: getProportionateScreenHeight(110),
+          width: getProportionateScreenWidth(140),
+          fit: BoxFit.contain,
         ),
       ],
     );
