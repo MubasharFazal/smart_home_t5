@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:smart_home/Pages/about_screen/about_us_screen.dart';
 import 'package:smart_home/Pages/edit_profile/components/profile_page.dart';
 import 'package:smart_home/Pages/edit_profile/edit_profile.dart';
 import 'package:smart_home/Pages/home_page/home_page.dart';
@@ -109,6 +110,18 @@ class _DrawerDashboardState extends State<DrawerDashboard> {
             onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const RoomPage()));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.devices),
+            title: const Text('About us',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold)),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const AboutUs()));
             },
           ),
           ListTile(

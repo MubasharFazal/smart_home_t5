@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:smart_home/models/user_model.dart.dart';
+import 'package:smart_home/models/user_model.dart';
 
 class Setting extends StatefulWidget {
   const Setting({Key? key}) : super(key: key);

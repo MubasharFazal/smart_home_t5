@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:smart_home/Pages/login_page/login_page.dart';
-import 'package:smart_home/models/user_model.dart.dart';
+import 'package:smart_home/models/user_model.dart';
 import 'package:smart_home/Pages/start/start_up_page.dart';
 import 'package:smart_home/widgets/text_widget.dart';
 
