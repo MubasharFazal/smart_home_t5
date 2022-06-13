@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:smart_home/Pages/info_pages/info.dart';
+import 'package:smart_home/Pages/info_pages/join.dart';
 import 'package:smart_home/Pages/login_page/login_page.dart';
 import 'package:smart_home/models/user_model.dart';
 import 'package:smart_home/Pages/start/start_up_page.dart';
@@ -241,18 +243,34 @@ class _RegistrationMobileState extends State<RegistrationDesktop> {
                             fontWeight: FontWeight.normal,
                           ),
                           WSizedBox(wval: 0.1, hval: 0),
-                          TextWidget(
-                            text: 'Home',
-                            textcolor: Colors.grey,
-                            textsize: 20,
-                            fontWeight: FontWeight.normal,
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const InfoPage()));
+                            },
+                            child: TextWidget(
+                              text: 'Product and code',
+                              textcolor: Colors.grey,
+                              textsize: 20,
+                              fontWeight: FontWeight.normal,
+                            ),
                           ),
                           WSizedBox(wval: 0.1, hval: 0),
-                          TextWidget(
-                            text: 'Join',
-                            textcolor: Colors.grey,
-                            textsize: 20,
-                            fontWeight: FontWeight.normal,
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const JoinPage()));
+                            },
+                            child: TextWidget(
+                              text: 'Join',
+                              textcolor: Colors.grey,
+                              textsize: 20,
+                              fontWeight: FontWeight.normal,
+                            ),
                           ),
                         ],
                       ),

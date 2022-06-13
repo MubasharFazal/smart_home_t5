@@ -23,9 +23,12 @@ class _SplahPageState extends State<SplahPage> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.blue,
-      child: Image.asset(
-        "assets/images/mainlogo.png",
-        color: Colors.white,
+      child: SizedBox(
+        child: Image.asset(
+          "assets/images/splash_img.png",
+          color: Colors.white,
+          
+        ),
       ),
       // child: FlutterLogo(size: MediaQuery.of(context).size.height)
     );

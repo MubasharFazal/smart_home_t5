@@ -1,14 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:smart_home/Pages/about_screen/about_us_screen.dart';
 import 'package:smart_home/Pages/edit_profile/components/profile_page.dart';
 import 'package:smart_home/Pages/edit_profile/edit_profile.dart';
-import 'package:smart_home/Pages/home_page/home_page.dart';
+import 'package:smart_home/Pages/info_pages/join.dart';
 import 'package:smart_home/Pages/login_page/login_page.dart';
-import 'package:smart_home/Pages/room_page/room_page.dart';
 import 'package:smart_home/Pages/start/start_up_page.dart';
+import 'package:smart_home/Pages/temperature_pages/temperatue.dart';
+import 'package:smart_home/models/user_model.dart';
 
 class DrawerDashboard extends StatefulWidget {
   const DrawerDashboard({Key? key}) : super(key: key);
@@ -20,23 +22,38 @@ class DrawerDashboard extends StatefulWidget {
 class _DrawerDashboardState extends State<DrawerDashboard> {
   final padding = const EdgeInsets.symmetric(horizontal: 20);
   final storage = const FlutterSecureStorage();
+  User? user = FirebaseAuth.instance.currentUser;
+  UserModel loggedInUser = UserModel();
+  DatabaseReference? userRef;
+
+  @override
+  void initState() {
+    super.initState();
+    user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      userRef = FirebaseDatabase.instance.ref().child('users').child(user!.uid);
+    }
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      loggedInUser = UserModel.fromMap(value.data());
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    const name = 'Sarah Abs';
-    const email = 'sarah@abs.com';
-    const urlImage = '';
-    // 'https://images.unsplash.com/-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80';
-
     return Drawer(
       backgroundColor: Colors.blue[400],
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
           buildHeader(
-            urlImage: urlImage,
-            name: name,
-            email: email,
+            urlImage: loggedInUser.profileImage.toString(),
+            name: loggedInUser.firstName.toString(),
+            email: loggedInUser.email.toString(),
             onClicked: () => Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => const ProfilePage(),
             )),
@@ -60,21 +77,6 @@ class _DrawerDashboardState extends State<DrawerDashboard> {
           // ),
           ListTile(
             leading: const Icon(
-              FontAwesomeIcons.solidUser,
-              color: Colors.blue,
-            ),
-            title: const Text('Profile',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold)),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const EditProfile()));
-            },
-          ),
-          ListTile(
-            leading: const Icon(
               Icons.input,
               color: Colors.white,
             ),
@@ -89,39 +91,43 @@ class _DrawerDashboardState extends State<DrawerDashboard> {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.meeting_room),
-            title: const Text('Rooms',
+            leading: const Icon(
+              FontAwesomeIcons.solidUser,
+            ),
+            title: const Text('Profile',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 15,
                     fontWeight: FontWeight.bold)),
             onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const HomePage()));
+                  MaterialPageRoute(builder: (context) => const EditProfile()));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.device_thermostat_outlined),
+            title: const Text('Temperature',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold)),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const TemperaturePage()));
             },
           ),
           ListTile(
             leading: const Icon(Icons.devices),
-            title: const Text('Devices',
+            title: const Text('Join us',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 15,
                     fontWeight: FontWeight.bold)),
             onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const RoomPage()));
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.devices),
-            title: const Text('About us',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold)),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const AboutUs()));
+                  MaterialPageRoute(builder: (context) => const JoinPage()));
             },
           ),
           ListTile(

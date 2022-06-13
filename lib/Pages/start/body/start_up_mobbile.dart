@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_home/Pages/edit_profile/edit_profile.dart';
 import 'package:smart_home/Pages/home_page/home_page.dart';
-import 'package:smart_home/Pages/room_page/room_page.dart';
+import 'package:smart_home/Pages/temperature_pages/temperatue.dart';
 
 class StartUPMobile extends StatefulWidget {
   const StartUPMobile({Key? key}) : super(key: key);
@@ -14,9 +14,6 @@ class _CustomBottomNavBarState extends State<StartUPMobile> {
   int currentTab = 0;
   final List<Widget> pages = [
     const HomePage(),
-    const RoomPage(),
-    const HomePage(),
-    const RoomPage()
   ];
 
   final PageStorageBucket bucket = PageStorageBucket();
@@ -36,7 +33,7 @@ class _CustomBottomNavBarState extends State<StartUPMobile> {
         onPressed: () {
           setState(() {
             currentScreen = const HomePage();
-            currentTab = 2;
+            currentTab = 0;
           });
         },
       ),
@@ -50,7 +47,7 @@ class _CustomBottomNavBarState extends State<StartUPMobile> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.fromLTRB(7, 0, 0, 0),
+                padding: const EdgeInsets.fromLTRB(40, 0, 0, 0),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -58,32 +55,7 @@ class _CustomBottomNavBarState extends State<StartUPMobile> {
                       minWidth: 40,
                       onPressed: () {
                         setState(() {
-                          currentScreen = const HomePage();
-                          currentTab = 0;
-                        });
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.home,
-                            color: currentTab == 0 ? Colors.blue : Colors.grey,
-                          ),
-                          Text(
-                            "Home",
-                            style: TextStyle(
-                              color:
-                                  currentTab == 0 ? Colors.blue : Colors.grey,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    MaterialButton(
-                      minWidth: 40,
-                      onPressed: () {
-                        setState(() {
-                          currentScreen = const RoomPage();
+                          currentScreen = const TemperaturePage();
                           currentTab = 1;
                         });
                       },
@@ -91,11 +63,11 @@ class _CustomBottomNavBarState extends State<StartUPMobile> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(
-                            Icons.room_preferences_outlined,
+                            Icons.device_thermostat,
                             color: currentTab == 1 ? Colors.blue : Colors.grey,
                           ),
                           Text(
-                            "Rooms",
+                            "Temperature",
                             style: TextStyle(
                               color:
                                   currentTab == 1 ? Colors.blue : Colors.grey,
@@ -108,35 +80,10 @@ class _CustomBottomNavBarState extends State<StartUPMobile> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 7, 0),
+                padding: const EdgeInsets.fromLTRB(0, 0, 50, 0),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    MaterialButton(
-                      minWidth: 40,
-                      onPressed: () {
-                        setState(() {
-                          currentScreen = const HomePage();
-                          currentTab = 2;
-                        });
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.device_thermostat_rounded,
-                            color: currentTab == 2 ? Colors.blue : Colors.grey,
-                          ),
-                          Text(
-                            "Devices",
-                            style: TextStyle(
-                              color:
-                                  currentTab == 2 ? Colors.blue : Colors.grey,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
                     MaterialButton(
                       minWidth: 40,
                       onPressed: () {
@@ -153,7 +100,7 @@ class _CustomBottomNavBarState extends State<StartUPMobile> {
                             color: currentTab == 3 ? Colors.blue : Colors.grey,
                           ),
                           Text(
-                            "Rooms",
+                            "Profile",
                             style: TextStyle(
                               color:
                                   currentTab == 3 ? Colors.blue : Colors.grey,

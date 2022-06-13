@@ -37,7 +37,7 @@ class WeatherContainer extends StatelessWidget {
                       style: Theme.of(context).textTheme.headline1,
                     ),
                     Text(
-                      'Cloudy',
+                      'Temperature',
                       style: Theme.of(context).textTheme.headline1,
                     ),
                     SizedBox(
@@ -57,11 +57,14 @@ class WeatherContainer extends StatelessWidget {
             ),
           ),
         ),
-        Image.asset(
-          'assets/images/weather/${model.randomNumber}.png',
-          height: getProportionateScreenHeight(110),
-          width: getProportionateScreenWidth(140),
-          fit: BoxFit.contain,
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+          child: Image.asset(
+            'assets/images/weather/8.png',
+            height: getProportionateScreenHeight(80),
+            width: getProportionateScreenWidth(90),
+            fit: BoxFit.contain,
+          ),
         ),
       ],
     );

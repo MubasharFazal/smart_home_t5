@@ -144,7 +144,6 @@ class _EditProfileMobileState extends State<EditProfileMobile> {
   @override
   void initState() {
     super.initState();
-
     user = FirebaseAuth.instance.currentUser;
     if (user != null) {
       userRef = FirebaseDatabase.instance.ref().child('users').child(user!.uid);
