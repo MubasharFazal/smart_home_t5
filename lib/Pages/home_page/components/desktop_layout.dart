@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smart_home/Pages/home_page/components/body.dart';
+import 'package:smart_home/Pages/home_page/components/body_drawing.dart';
+import 'package:smart_home/Pages/home_page/components/body_ketchen.dart';
 import 'package:smart_home/config/size_config.dart';
 import 'package:smart_home/model_view_controller/home_view_model.dart';
 import 'package:smart_home/provider/base_view.dart';
@@ -39,8 +41,8 @@ class MyDesktopBody extends StatelessWidget {
                         style: Theme.of(context).textTheme.headline1,
                       ),
                       Container(
-                        width: 50,
-                        height: 50,
+                        width: 40,
+                        height: 40,
                         decoration: const BoxDecoration(
                           color: Color(0xffdadada),
                           borderRadius:
@@ -61,14 +63,67 @@ class MyDesktopBody extends StatelessWidget {
                   ),
                 ),
                 leadingWidth: getProportionateScreenWidth(170),
-              ),
-              body: Center(
-                child: Container(
-                  width: 800,
-                  child: Body(
-                    model: model,
+                bottom: PreferredSize(
+                  child: TabBar(
+                      isScrollable: true,
+                      unselectedLabelColor: Colors.white.withOpacity(0.3),
+                      indicatorColor: Colors.blue,
+                      indicatorWeight: 5,
+                      indicatorSize: TabBarIndicatorSize.tab,
+                      tabs: [
+                        Tab(
+                          child: Text(
+                            'Living Room',
+                            style: Theme.of(context).textTheme.headline3,
+                          ),
+                        ),
+                        Tab(
+                          child: Text(
+                            'Drawing',
+                            style: Theme.of(context).textTheme.headline4,
+                          ),
+                        ),
+                        Tab(
+                          child: Text(
+                            'Kitchen',
+                            style: Theme.of(context).textTheme.headline4,
+                          ),
+                        ),
+                      ]),
+                  preferredSize: Size.fromHeight(
+                    getProportionateScreenHeight(
+                      35,
+                    ),
                   ),
                 ),
+              ),
+              body: TabBarView(
+                children: <Widget>[
+                  Center(
+                    child: SizedBox(
+                      width: 800,
+                      child: Body(
+                        model: model,
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: SizedBox(
+                      width: 800,
+                      child: DrawingRoom(
+                        model: model,
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: SizedBox(
+                      width: 800,
+                      child: KetchenRoom(
+                        model: model,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           );

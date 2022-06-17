@@ -27,7 +27,7 @@ class WeatherContainer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 SizedBox(
-                  width: getProportionateScreenWidth(90),
+                  width: getProportionateScreenWidth(70),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -62,7 +62,7 @@ class WeatherContainer extends StatelessWidget {
           child: Image.asset(
             'assets/images/weather/8.png',
             height: getProportionateScreenHeight(80),
-            width: getProportionateScreenWidth(90),
+            width: getProportionateScreenWidth(70),
             fit: BoxFit.contain,
           ),
         ),

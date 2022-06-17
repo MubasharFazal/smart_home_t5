@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:smart_home/Pages/home_page/components/add_device.dart';
 import 'package:smart_home/Pages/home_page/components/dark_container.dart';
-import 'package:smart_home/Pages/home_page/components/savings_container.dart';
-import 'package:smart_home/Pages/home_page/components/weather_container.dart';
+import 'package:smart_home/Pages/home_page/components/music_layout.dart';
 import 'package:smart_home/config/size_config.dart';
 import 'package:smart_home/model_view_controller/home_view_model.dart';
 
-class Body extends StatelessWidget {
+class DrawingRoom extends StatelessWidget {
   final HomeScreenViewModel model;
-  const Body({Key? key, required this.model}) : super(key: key);
+  const DrawingRoom({Key? key, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,22 +22,14 @@ class Body extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Padding(
-              padding: EdgeInsets.all(getProportionateScreenHeight(5)),
-              child: WeatherContainer(model: model),
-            ),
-            Padding(
-              padding: EdgeInsets.all(getProportionateScreenHeight(5)),
-              child: SavingsContainer(model: model),
-            ),
             Row(
               children: [
                 Expanded(
                   child: Padding(
                     padding: EdgeInsets.all(getProportionateScreenHeight(5)),
                     child: DarkContainer(
-                      itsOn: model.lisLightOn1,
-                      switchButton: model.lightSwitch1,
+                      itsOn: model.disLightOn1,
+                      switchButton: model.dlightSwitch1,
                       onTap: () {
                         // Navigator.of(context).pushNamed(SmartLight.routeName);
                       },
@@ -52,8 +43,8 @@ class Body extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.all(getProportionateScreenHeight(5)),
                     child: DarkContainer(
-                      itsOn: model.lisLightOn2,
-                      switchButton: model.lightSwitch2,
+                      itsOn: model.disLightOn2,
+                      switchButton: model.dlightSwitch2,
                       onTap: () {
                         // Navigator.of(context).pushNamed(SmartLight.routeName);
                       },
@@ -71,8 +62,8 @@ class Body extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.all(getProportionateScreenHeight(5)),
                     child: DarkContainer(
-                      itsOn: model.lisLightOn3,
-                      switchButton: model.lightSwitch3,
+                      itsOn: model.disLightOn3,
+                      switchButton: model.dlightSwitch3,
                       onTap: () {
                         // Navigator.of(context).pushNamed(SmartLight.routeName);
                       },
@@ -86,18 +77,22 @@ class Body extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.all(getProportionateScreenHeight(5)),
                     child: DarkContainer(
-                      itsOn: model.lisFanON,
-                      switchButton: model.fanSwitch,
+                      itsOn: model.disAcON,
+                      switchButton: model.dacSwitch,
                       onTap: () {
                         // Navigator.of(context).pushNamed(SmartFan.routeName);
                       },
-                      iconAsset: 'assets/icons/svg/fan.svg',
-                      device: 'Fan',
+                      iconAsset: 'assets/icons/svg/ac.svg',
+                      device: 'Air Conditioner',
                       deviceCount: 'Device 4',
                     ),
                   ),
                 ),
               ],
+            ),
+            Padding(
+              padding: EdgeInsets.all(getProportionateScreenHeight(5)),
+              child: const MusicLayout(),
             ),
             Row(
               children: [
@@ -105,13 +100,13 @@ class Body extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.all(getProportionateScreenHeight(5)),
                     child: DarkContainer(
-                      itsOn: model.lisLightOn3,
-                      switchButton: model.lightSwitch3,
+                      itsOn: model.disSpeaker,
+                      switchButton: model.dSpeakerSwitch,
                       onTap: () {
                         // Navigator.of(context).pushNamed(SmartLight.routeName);
                       },
-                      iconAsset: 'assets/icons/svg/light.svg',
-                      device: 'Lightening',
+                      iconAsset: 'assets/icons/svg/speaker.svg',
+                      device: 'Speaker',
                       deviceCount: 'Device 5',
                     ),
                   ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smart_home/Pages/home_page/components/body.dart';
+import 'package:smart_home/Pages/home_page/components/body_drawing.dart';
+import 'package:smart_home/Pages/home_page/components/body_ketchen.dart';
 import 'package:smart_home/config/size_config.dart';
 import 'package:smart_home/model_view_controller/home_view_model.dart';
 import 'package:smart_home/provider/base_view.dart';
@@ -77,7 +79,7 @@ class MyMobileBody extends StatelessWidget {
                         ),
                         Tab(
                           child: Text(
-                            'Dining',
+                            'Drawing',
                             style: Theme.of(context).textTheme.headline4,
                           ),
                         ),
@@ -100,11 +102,11 @@ class MyMobileBody extends StatelessWidget {
                   Body(
                     model: model,
                   ),
-                  const Center(
-                    child: Text('This is'),
+                  DrawingRoom(
+                    model: model,
                   ),
-                  const Center(
-                    child: Text('under construction'),
+                  KetchenRoom(
+                    model: model,
                   ),
                 ],
               ),
@@ -113,59 +115,3 @@ class MyMobileBody extends StatelessWidget {
         });
   }
 }
-
-
-
-
-// import 'package:flutter/material.dart';
-// import 'package:smart_home/widgets/drawer_dashboard.dart';
-
-// class MyMobileBody extends StatelessWidget {
-//   const MyMobileBody({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       drawer: const MenuDashboardPage(),
-//       backgroundColor: Colors.deepPurple[200],
-//       appBar: AppBar(
-//         title: const Text('M O B I L E'),
-//       ),
-//       body: Padding(
-//         padding: const EdgeInsets.all(8.0),
-//         child: Column(
-//           children: [
-//             // youtube video
-//             Padding(
-//               padding: const EdgeInsets.all(8.0),
-//               child: AspectRatio(
-//                 aspectRatio: 16 / 9,
-//                 child: Container(
-//                   color: Colors.deepPurple[400],
-//                 ),
-//               ),
-//             ),
-
-//             // comment section & recommended videos
-//             Expanded(
-//               child: ListView.builder(
-//                 itemCount: 8,
-//                 itemBuilder: (context, index) {
-//                   return Padding(
-//                     padding: const EdgeInsets.all(8.0),
-//                     child: Container(
-//                       color: Colors.deepPurple[300],
-//                       height: 120,
-//                     ),
-//                   );
-//                 },
-//               ),
-//             )
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-

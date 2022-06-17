@@ -8,21 +8,30 @@ class HomeScreenViewModel extends BaseModel {
   int selectedIndex = 1;
   int randomNumber = 1;
   final PageController pageController = PageController();
-  bool isLightOn1 = false;
-  bool isLightOn2 = false;
-  bool isLightOn3 = false;
-  bool isFanON = false;
-
+  bool lisLightOn1 = false;
+  bool lisLightOn2 = false;
+  bool lisLightOn3 = false;
+  bool lisFanON = false;
+  /////// drawing room
+  bool disAcON = false;
+  bool disLightOn1 = false;
+  bool disLightOn2 = false;
+  bool disLightOn3 = false;
+  bool disSpeaker = false;
+//////// kitchen
+  bool kisLightOn1 = false;
+  bool kisLightOn2 = false;
+  bool kisFanON = false;
   void generateRandomNumber() {
     randomNumber = Random().nextInt(8);
     notifyListeners();
   }
 
   void lightSwitch1() async {
-    isLightOn1 = !isLightOn1;
+    lisLightOn1 = !lisLightOn1;
     notifyListeners();
 
-    if (isLightOn1 == true) {
+    if (lisLightOn1 == true) {
       lightDatabase1.set({
         'status': '0',
       });
@@ -34,9 +43,9 @@ class HomeScreenViewModel extends BaseModel {
   }
 
   void lightSwitch2() {
-    isLightOn2 = !isLightOn2;
+    lisLightOn2 = !lisLightOn2;
     notifyListeners();
-    if (isLightOn2 == true) {
+    if (lisLightOn2 == true) {
       lightDatabase2.set({
         'status': '0',
       });
@@ -48,9 +57,9 @@ class HomeScreenViewModel extends BaseModel {
   }
 
   void lightSwitch3() {
-    isLightOn3 = !isLightOn3;
+    lisLightOn3 = !lisLightOn3;
     notifyListeners();
-    if (isLightOn3 == true) {
+    if (lisLightOn3 == true) {
       lightDatabase3.set({
         'status': '0',
       });
@@ -62,9 +71,9 @@ class HomeScreenViewModel extends BaseModel {
   }
 
   void fanSwitch() {
-    isFanON = !isFanON;
+    lisFanON = !lisFanON;
     notifyListeners();
-    if (isFanON == true) {
+    if (lisFanON == true) {
       fanDatabase1.set({
         'status': '0',
       });
@@ -73,5 +82,48 @@ class HomeScreenViewModel extends BaseModel {
         'status': '1',
       });
     }
+  }
+
+  //////  drawing
+
+  void dlightSwitch1() async {
+    disLightOn1 = !disLightOn1;
+    notifyListeners();
+  }
+
+  void dlightSwitch2() async {
+    disLightOn2 = !disLightOn2;
+    notifyListeners();
+  }
+
+  void dlightSwitch3() async {
+    disLightOn3 = !disLightOn3;
+    notifyListeners();
+  }
+
+  void dacSwitch() {
+    disAcON = !disAcON;
+    notifyListeners();
+  }
+
+  void dSpeakerSwitch() {
+    disSpeaker = !disSpeaker;
+    notifyListeners();
+  }
+
+  //////// ketchen
+  void klightSwitch1() async {
+    kisLightOn1 = !kisLightOn1;
+    notifyListeners();
+  }
+
+  void klightSwitch2() async {
+    kisLightOn2 = !kisLightOn2;
+    notifyListeners();
+  }
+
+  void kfanSwitch() {
+    kisFanON = !kisFanON;
+    notifyListeners();
   }
 }
