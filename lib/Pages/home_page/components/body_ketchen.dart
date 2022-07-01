@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_home/Pages/home_page/components/add_device.dart';
 import 'package:smart_home/Pages/home_page/components/dark_container.dart';
-import 'package:smart_home/Pages/home_page/components/music_layout.dart';
 import 'package:smart_home/config/size_config.dart';
 import 'package:smart_home/model_view_controller/home_view_model.dart';
 
