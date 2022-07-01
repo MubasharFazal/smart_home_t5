@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:smart_home/Pages/home_page/components/body.dart';
+import 'package:smart_home/Pages/temperature_pages/components/body.dart';
 import 'package:smart_home/config/size_config.dart';
 import 'package:smart_home/model_view_controller/home_view_model.dart';
 import 'package:smart_home/provider/base_view.dart';
@@ -35,8 +35,8 @@ class MyDesktopBody extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Home',
-                        style: Theme.of(context).textTheme.headline1,
+                        'Temperature',
+                        style: Theme.of(context).textTheme.headline2,
                       ),
                       Container(
                         width: 50,

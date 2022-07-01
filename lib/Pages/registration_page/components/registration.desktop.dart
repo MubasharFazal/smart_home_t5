@@ -251,7 +251,7 @@ class _RegistrationMobileState extends State<RegistrationDesktop> {
                                       builder: (context) => const InfoPage()));
                             },
                             child: TextWidget(
-                              text: 'Product and code',
+                              text: 'Product',
                               textcolor: Colors.grey,
                               textsize: 20,
                               fontWeight: FontWeight.normal,

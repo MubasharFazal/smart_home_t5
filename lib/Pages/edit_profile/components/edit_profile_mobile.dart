@@ -29,7 +29,7 @@ class _EditProfileMobileState extends State<EditProfileMobile> {
   DatabaseReference? userRef;
   File? imageFile;
   bool showLocalFile = false;
-
+  String? userid;
   _getUserDetails() async {
     FirebaseFirestore.instance
         .collection("users")
@@ -51,9 +51,10 @@ class _EditProfileMobileState extends State<EditProfileMobile> {
 
     final tempImage = File(xFile.path);
 
-    imageFile = tempImage;
     showLocalFile = true;
-    setState(() {});
+    setState(() {
+      imageFile = tempImage;
+    });
 
     // upload to firebase storage
 
@@ -100,9 +101,10 @@ class _EditProfileMobileState extends State<EditProfileMobile> {
 
     final tempImage = File(xFile.path);
 
-    imageFile = tempImage;
     showLocalFile = true;
-    setState(() {});
+    setState(() {
+      imageFile = tempImage;
+    });
     // upload to firebase storage
 
     ProgressDialog progressDialog = ProgressDialog(

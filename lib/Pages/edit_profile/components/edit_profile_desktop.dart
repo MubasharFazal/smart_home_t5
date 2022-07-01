@@ -51,9 +51,10 @@ class _EditProfileDesktopState extends State<EditProfileDesktop> {
 
     final tempImage = File(xFile.path);
 
-    imageFile = tempImage;
     showLocalFile = true;
-    setState(() {});
+    setState(() {
+      imageFile = tempImage;
+    });
 
     // upload to firebase storage
 
@@ -100,9 +101,10 @@ class _EditProfileDesktopState extends State<EditProfileDesktop> {
 
     final tempImage = File(xFile.path);
 
-    imageFile = tempImage;
     showLocalFile = true;
-    setState(() {});
+    setState(() {
+      imageFile = tempImage;
+    });
     // upload to firebase storage
 
     ProgressDialog progressDialog = ProgressDialog(

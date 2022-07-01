@@ -38,7 +38,7 @@ class MyMobileBody extends StatelessWidget {
                     children: [
                       Text(
                         'Home',
-                        style: Theme.of(context).textTheme.headline1,
+                        style: Theme.of(context).textTheme.headline2,
                       ),
                       Container(
                         width: 40,

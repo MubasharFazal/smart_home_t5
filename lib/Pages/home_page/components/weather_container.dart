@@ -1,11 +1,35 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_home/config/size_config.dart';
+import 'package:smart_home/database/appliencs_address.dart';
+import 'package:smart_home/database/gateway.dart';
 import 'package:smart_home/model_view_controller/home_view_model.dart';
 
-class WeatherContainer extends StatelessWidget {
+class WeatherContainer extends StatefulWidget {
   const WeatherContainer({Key? key, required this.model}) : super(key: key);
 
   final HomeScreenViewModel model;
+
+  @override
+  State<WeatherContainer> createState() => _WeatherContainerState();
+}
+
+class _WeatherContainerState extends State<WeatherContainer> {
+  String temp = '0.0';
+  @override
+  void initState() {
+    super.initState();
+    _activelisner();
+  }
+
+  _activelisner() {
+    routOftemp.onValue.listen((event) {
+      final Object? temperatureOf = event.snapshot.value;
+      setState(() {
+        temp = temperatureOf.toString();
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +57,7 @@ class WeatherContainer extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      '28°C',
+                      temp,
                       style: Theme.of(context).textTheme.headline1,
                     ),
                     Text(

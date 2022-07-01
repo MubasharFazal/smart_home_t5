@@ -151,11 +151,10 @@ class _LoginPageDesktopState extends State<LoginPageDesktop> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const InfoPage()));
+                                    builder: (context) => const InfoPage()));
                           },
                           child: TextWidget(
-                            text: 'Product and code',
+                            text: 'Product',
                             textcolor: Colors.grey,
                             textsize: 20,
                             fontWeight: FontWeight.normal,
@@ -167,8 +166,7 @@ class _LoginPageDesktopState extends State<LoginPageDesktop> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const JoinPage()));
+                                    builder: (context) => const JoinPage()));
                           },
                           child: TextWidget(
                             text: 'Join',
